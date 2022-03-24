@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>Payment Page</title>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      label
+      {
+          width: 100%;
+      }
+      form > label:nth-child(n + 2) {
+        margin-top: 20px;
+      }
+
+      form > input {
+          padding: 5px;
+        width: 300px;
+      }
+
+      #submit
+      {
+          margin-top: 20px;
+          background-color: rgb(2, 177, 2);
+          color: white;
+          border: none;
+          border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" />
+      <label for="card">Card: </label>
+      <input type="number" name="card" id="card" />
+      <label for="cvv">CVV:</label>
+      <input type="number" name="cvv" id="cvv" />
+      <label for="exp">Expiry Date: </label>
+      <input type="month" name="exp" id="exp" />
+      <input type="submit" id="submit" value = ""/>
+    </form>
+  </body>
+</html>
+
+
+<script>
+    var bill = JSON.parse(localStorage.getItem("amountPayable"))
+    var proceedToPay = document.querySelector("#submit");
+    proceedToPay.value = `Proceed to Pay $${bill}`;
+    proceedToPay.addEventListener("click",payNow);
+
+    function payNow()
+    {
+        event.preventDefault();
+        var name1 = document.querySelector("#name").value;
+        var card = document.querySelector("#card").value;
+        var cvv = document.querySelector("#cvv").value;
+        var exp = document.querySelector("#exp").value;
+        
+        if(card == "123456789000" && cvv == "123" && exp == "2024-06")
+        {
+            alert("We have sent you an OTP. Please check your mobile.");
+            window.location.href = "./OTP.html";
+        }
+        else
+        {
+            alert("Error! Please type valid card details only.");
+            document.querySelector("#name").value = "";
+            document.querySelector("#card").value = "";
+            document.querySelector("#cvv").value = "";
+            document.querySelector("#exp").value = "";
+        }
+    }
+</script>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        margin: 0;
+      }
+      h1,
+      p,
+      #container {
+        padding: 5px;
+      }
+      form > * {
+        padding: 5px;
+      }
+      p
+      {
+        display: flex;
+        font-size: 20px;
+        justify-content: right;
+      }
+      #container {
+        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      #navbar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: teal;
+        padding: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: lightgrey;
+      }
+      form
+      {
+        display: inline;
+        margin: 5px;
+      }
+      #navbar a:hover {
+        color: white;
+      }
+      #navbar a {
+        cursor: pointer;
+      }
+
+      #paypromo
+      {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #pay
+      {
+        margin: 5px;
+        border-radius: 2px;
+        /* margin-right: 100%; */
+        padding: 10px;
+        font-size: 20px;
+        background-color: rgb(7, 219, 7);
+        color: white;
+        border: none;
+      }
+
+      @media all and (min-width: 80px) and (max-width: 400px) {
+        #container {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div><a href="./men.html">Men</a></div>
+      <div><a href="./women.html">Women</a></div>
+      <div><a href="./signup.html">Signup</a></div>
+      <div><a href="./login.html">Login</a></div>
+      <div><a href="./cart.html">Cart</a></div>
+    </div>
+    <h1>Cart Page</h1>
+    <p></p>
+    <div id="paypromo">
+      <form>
+        <label for="promo">Add Coupon</label>
+        <input
+          type="text"
+          name="promo"
+          id="promo"
+          placeholder="enter coupon code"
+        />
+        <input type="submit" value="Apply" id="apply" />
+        <input type="submit" value="Remove Discount" id = "remove">
+      </form>
+      <button id="pay">Proceed to Pay</button>
+    </div>
+    
+    <div id="container"></div>
+    
+  </body>
+</html>
+
+<script>
+  var cartData = JSON.parse(localStorage.getItem("cart")) || [];
+  // console.log(cartData);
+
+  var promoApplied = JSON.parse(localStorage.getItem("coupon")) || 0;
+
+  var goToPay = document.querySelector("#pay");
+  goToPay.addEventListener("click",paymentPage)
+
+
+  var total = totalPrice(cartData);
+
+
+  document.querySelector(
+    "p"
+  ).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}.`;
+  if (promoApplied == 1) {
+    total = (total * 7) / 10;
+    document.querySelector(
+      "p"
+    ).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}. [Coupon Applied]`;
+  }
+
+  function paymentPage()
+  {
+    window.location.href = "./payment.html";
+  }
+  var coupon = document.querySelector("#apply");
+  coupon.addEventListener("click", applyPromo);
+
+  var couponRemove = document.querySelector("#remove");
+  couponRemove.addEventListener("click", removePromo);
+
+  function removePromo()
+  {
+    event.preventDefault();
+    promoApplied = 0;
+    localStorage.setItem("coupon", JSON.stringify(promoApplied));
+    alert("Discount Removed")
+    window.location.reload();
+  }
+
+  function applyPromo() {
+    event.preventDefault();
+    var couponCode = document.querySelector("#promo").value;
+    if (couponCode == "masai30" && promoApplied == 0) {
+      promoApplied++;
+      localStorage.setItem("coupon", JSON.stringify(promoApplied));
+      alert("Coupon Applied!!");
+      window.location.reload();
+    } else if (couponCode != "masai30") {
+      alert("Invalid Coupon Code");
+      document.querySelector("#promo").value = "";
+    } else {
+      alert("Coupon has already been used once");
+      document.querySelector("#promo").value = "";
+    }
+  }
+
+  function totalPrice(arr) {
+    var total = arr.reduce(function (sum, a) {
+      return sum + a.price;
+    }, 0);
+    return total;
+  }
+  cartData.map(function (elem, i) {
+    var box = document.createElement("div");
+
+    var img = document.createElement("img");
+    img.src = elem.url;
+
+    var name = document.createElement("p");
+    name.textContent = elem.name;
+    name.style.height = "40px";
+
+    var price = document.createElement("p");
+    price.innerText = "$" + elem.price;
+
+    var removeCart = document.createElement("button");
+    removeCart.innerText = "Remove From Cart";
+    removeCart.addEventListener("click", function () {
+      removeFromCart(i);
+    });
+
+    box.append(img, name, price, removeCart);
+
+    document.querySelector("#container").append(box);
+  });
+  function removeFromCart(i) {
+    cartData.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    alert("Item removed from cart");
+    window.location.reload();
+  }
+
+  localStorage.setItem("amountPayable",JSON.stringify(total))
+</script>

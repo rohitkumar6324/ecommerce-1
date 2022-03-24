@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        margin: 0;
+      }
+      h1,form
+      {
+        padding: 5px;
+      }
+      #navbar {
+        display: flex;
+        justify-content: space-around;
+        background-color: teal;
+        padding: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: lightgrey;
+      }
+      #navbar a:hover {
+        color: white;
+      }
+      #navbar a {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div><a href="./men.html">Men</a></div>
+      <div><a href="./women.html">Women</a></div>
+      <div><a href="./signup.html">Signup</a></div>
+      <div><a href="./login.html">Login</a></div>
+      <div><a href="./cart.html">Cart</a></div>
+    </div>
+    <h1>Login page</h1>
+    <form>
+      <input id="email" type="text" placeholder="Enter email" />
+      <input id="pass" type="password" placeholder="Enter password" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
+
+<script>
+  document.querySelector("form").addEventListener("submit", loginFun);
+  var regdUsers = JSON.parse(localStorage.getItem("userCreds"));
+  //console.log(regdUsers);
+
+  function loginFun() {
+    event.preventDefault();
+    var enteredEmail = document.querySelector("#email").value;
+    var enteredPass = document.querySelector("#pass").value;
+    //console.log(email, pass);
+
+    for (var i = 0; i < regdUsers.length; i++) {
+      console.log(regdUsers[i]);
+      if (
+        regdUsers[i].email == enteredEmail &&
+        regdUsers[i].password == enteredPass
+      ) {
+        alert("login success");
+        window.location.href = "men.html";
+        break;
+      } else if (i == regdUsers.length - 1) {
+        alert("login failed");
+      }
+    }
+  }
+</script>

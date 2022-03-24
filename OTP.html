@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>OTP</title>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #submit
+      {
+          margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="otp">Enter the OTP :</label>
+      <input type="password" name="otp" id="otp" />
+      <input type="submit" id="submit" />
+    </form>
+  </body>
+</html>
+
+
+<script>
+    var submit = document.querySelector("form");
+    submit.addEventListener("submit",checkSubmit)
+
+    function checkSubmit()
+    {
+        event.preventDefault();
+        var otp = document.querySelector("#otp").value;
+        if(otp == "1234")
+        {
+            localStorage.setItem("cart",JSON.stringify([]));
+            localStorage.setItem("coupon",JSON.stringify(0));
+            alert("Payment Successful");
+            window.location.href = "./cart.html";
+        }
+        else
+        {
+            alert("Wrong OTP entered");
+            document.querySelector("#otp").value = "";
+        }
+    }
+</script>
