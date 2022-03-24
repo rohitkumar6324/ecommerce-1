@@ -1,0 +1,32 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+body div {
+  /* padding: 50px; */
+  background-color: teal;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: lightgrey;
+}
+a:hover {
+  color: white;
+}
+a {
+  cursor: pointer;
+}

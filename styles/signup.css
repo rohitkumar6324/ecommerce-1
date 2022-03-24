@@ -1,0 +1,28 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+}
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: teal;
+  padding: 10px;
+}
+
+h1,
+form {
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: lightgrey;
+}
+#navbar a:hover {
+  color: white;
+}
+#navbar a {
+  cursor: pointer;
+}

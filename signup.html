@@ -11,36 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        margin: 0;
-      }
-      #navbar {
-        display: flex;
-        justify-content: space-around;
-        background-color: teal;
-        padding: 10px;
-      }
-
-      h1,form
-      {
-        padding: 5px;
-      }
-
-      a {
-        text-decoration: none;
-        color: lightgrey;
-      }
-      #navbar a:hover {
-        color: white;
-      }
-      #navbar a {
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/signup.css">
   </head>
   <body>
     <div id="navbar">
@@ -60,23 +31,6 @@
   </body>
 </html>
 
-<script>
-  document.querySelector("form").addEventListener("submit", signUpFun);
+<script src="./scripts/signup.js">
 
-  var userData = JSON.parse(localStorage.getItem("userCreds")) || [];
-  function signUpFun() {
-    event.preventDefault();
-
-    var userObj = {
-      email: document.querySelector("#email").value,
-      password: document.querySelector("#pass").value,
-      mobile: document.querySelector("#mobile").value,
-    };
-    //console.log(userObj);
-    userData.push(userObj);
-    //console.log(userData)
-    localStorage.setItem("userCreds", JSON.stringify(userData));
-
-    window.location.href = "./login.html";
-  }
 </script>

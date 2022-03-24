@@ -11,30 +11,7 @@
       rel="stylesheet"
     />
     <title>OTP</title>
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-
-      body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      form {
-        border: 1px solid black;
-        padding: 20px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      #submit
-      {
-          margin-top: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/OTP.css">
   </head>
   <body>
     <form>
@@ -46,25 +23,6 @@
 </html>
 
 
-<script>
-    var submit = document.querySelector("form");
-    submit.addEventListener("submit",checkSubmit)
+<script src="./scripts/OTP.js">
 
-    function checkSubmit()
-    {
-        event.preventDefault();
-        var otp = document.querySelector("#otp").value;
-        if(otp == "1234")
-        {
-            localStorage.setItem("cart",JSON.stringify([]));
-            localStorage.setItem("coupon",JSON.stringify(0));
-            alert("Payment Successful");
-            window.location.href = "./cart.html";
-        }
-        else
-        {
-            alert("Wrong OTP entered");
-            document.querySelector("#otp").value = "";
-        }
-    }
 </script>

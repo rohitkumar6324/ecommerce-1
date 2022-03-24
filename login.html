@@ -11,35 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        margin: 0;
-      }
-      h1,form
-      {
-        padding: 5px;
-      }
-      #navbar {
-        display: flex;
-        justify-content: space-around;
-        background-color: teal;
-        padding: 10px;
-      }
-
-      a {
-        text-decoration: none;
-        color: lightgrey;
-      }
-      #navbar a:hover {
-        color: white;
-      }
-      #navbar a {
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/login.css">
   </head>
   <body>
     <div id="navbar">
@@ -58,29 +30,6 @@
   </body>
 </html>
 
-<script>
-  document.querySelector("form").addEventListener("submit", loginFun);
-  var regdUsers = JSON.parse(localStorage.getItem("userCreds"));
-  //console.log(regdUsers);
-
-  function loginFun() {
-    event.preventDefault();
-    var enteredEmail = document.querySelector("#email").value;
-    var enteredPass = document.querySelector("#pass").value;
-    //console.log(email, pass);
-
-    for (var i = 0; i < regdUsers.length; i++) {
-      console.log(regdUsers[i]);
-      if (
-        regdUsers[i].email == enteredEmail &&
-        regdUsers[i].password == enteredPass
-      ) {
-        alert("login success");
-        window.location.href = "men.html";
-        break;
-      } else if (i == regdUsers.length - 1) {
-        alert("login failed");
-      }
-    }
-  }
+<script src="./scripts/login.js">
+  
 </script>
