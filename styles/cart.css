@@ -15,9 +15,8 @@ form > * {
   box-sizing: border-box;
 }
 h1 + p {
-  display: flex;
+  text-align: center;
   font-size: 20px;
-  justify-content: right;
 }
 #container {
   padding: 5px;
