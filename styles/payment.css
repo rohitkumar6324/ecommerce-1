@@ -34,3 +34,16 @@ form > input {
   border: none;
   border-radius: 5px;
 }
+
+
+@media all and (min-width: 80px) and (max-width: 400px) {
+    form > input {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  form > input{
+    width: 200px
+  }
+}

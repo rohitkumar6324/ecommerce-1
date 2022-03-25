@@ -25,15 +25,20 @@
     <p></p>
     <div id="paypromo">
       <form>
-        <label for="promo">Add Coupon</label>
+        <span id="codeVal">
+          <label for="promo">Add Coupon:</label>
         <input
           type="text"
           name="promo"
           id="promo"
           placeholder="enter coupon code"
-        />
-        <input type="submit" value="Apply" id="apply" />
-        <input type="submit" value="Remove Discount" id = "remove">
+        /></span>
+        
+        <span>
+          <input type="submit" value="Apply" id="apply" />
+          <input type="submit" value="Remove Discount" id = "remove">
+        </span>
+        
       </form>
       <button id="pay">Proceed to Pay</button>
     </div>

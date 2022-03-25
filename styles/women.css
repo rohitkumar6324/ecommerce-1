@@ -7,11 +7,15 @@ body {
 h1 {
   padding: 5px;
 }
+img{
+  width: 100%;
+}
 #container {
   padding: 5px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  font-size: 14px;
 }
 #navbar {
   position: sticky;
@@ -32,7 +36,20 @@ a {
 #navbar a {
   cursor: pointer;
 }
+@media  screen and (max-width: 1020px) {
+  #container{
+    font-size: 12px;
+  }
 
+}
+@media  screen and (max-width: 720px) {
+  #container{
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    font-size: 14px;
+  }
+
+}
 @media all and (min-width: 80px) and (max-width: 400px) {
   #container {
     grid-template-columns: repeat(1, 1fr);

@@ -2,17 +2,18 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  margin: 0;
-  display: flex;
+  /* margin: 0; */
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   align-items: center;
 }
 body div {
   /* padding: 50px; */
   background-color: teal;
-  width: 200px;
+  /* width: 200px; */
   height: 200px;
   display: flex;
   justify-content: center;
@@ -29,4 +30,28 @@ a:hover {
 }
 a {
   cursor: pointer;
+}
+
+
+@media  screen and (max-width: 720px) {
+  body{
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+  }
+
+  body div{
+    height: 100px;
+  }
+
+
+}
+
+@media all and (min-width: 80px) and (max-width: 400px) {
+  body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    width: 60%;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

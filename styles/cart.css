@@ -1,74 +1,164 @@
- * {
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        margin: 0;
-      }
-      h1,
-      p,
-      #container {
-        padding: 5px;
-      }
-      form > * {
-        padding: 5px;
-      }
-      p
-      {
-        display: flex;
-        font-size: 20px;
-        justify-content: right;
-      }
-      #container {
-        padding: 5px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
-      #navbar {
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: space-around;
-        background-color: teal;
-        padding: 10px;
-      }
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+}
+h1,
+p,
+#container {
+  padding: 5px;
+  box-sizing: border-box;
+}
+form > * {
+  padding: 5px;
+  box-sizing: border-box;
+}
+h1 + p {
+  display: flex;
+  font-size: 20px;
+  justify-content: right;
+}
+#container {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  font-size: 14px;
+}
+img {
+  width: 100%;
+}
+input
+{
+  box-sizing: border-box;
+}
+#navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: teal;
+  padding: 10px;
+}
 
-      a {
-        text-decoration: none;
-        color: lightgrey;
-      }
-      form
-      {
-        display: inline;
-        margin: 5px;
-      }
-      #navbar a:hover {
-        color: white;
-      }
-      #navbar a {
-        cursor: pointer;
-      }
+a {
+  text-decoration: none;
+  color: lightgrey;
+}
+form {
+  display: inline;
+  margin: 5px;
+}
+#navbar a:hover {
+  color: white;
+}
+#navbar a {
+  cursor: pointer;
+}
 
-      #paypromo
-      {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      #pay
-      {
-        margin: 5px;
-        border-radius: 2px;
-        /* margin-right: 100%; */
-        padding: 10px;
-        font-size: 20px;
-        background-color: rgb(7, 219, 7);
-        color: white;
-        border: none;
-      }
+#paypromo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-      @media all and (min-width: 80px) and (max-width: 400px) {
-        #container {
-          grid-template-columns: repeat(1, 1fr);
-        }
-      }
+#pay {
+  margin: 5px;
+  border-radius: 2px;
+  width:fit-content;
+  white-space: nowrap;
+  /* margin-right: 100%; */
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgb(7, 219, 7);
+  color: white;
+  border: none;
+}
+
+@media screen and (max-width: 1020px) {
+  #container {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 720px) {
+  #container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    /* font-size: 14px; */
+  }
+  /* form{
+    width: 100%;
+  } */
+  #codeVal{
+    margin-bottom: 10px;
+  }
+  input{
+    width: 48%;
+  }
+  label{
+    width: 50%;
+    text-align: center;
+  }
+  input[type="submit"]{
+     font-size: 12px;
+     padding: 2px;
+     box-sizing: border-box;
+  }
+  span{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    gap: auto;
+    justify-content: space-between;
+  }
+  /* #paypromo > button {
+    width: 30%;
+  } */
+  #paypromo > form {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  h1+p{
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  h1 + p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 505px) {
+  #paypromo{
+    flex-direction: column;
+    align-items: left;
+  }
+  span{
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+  }
+  label,input{
+    width: 100%;
+  }
+  #pay{
+    width: 60%;
+  }
+}
+@media all and (min-width: 80px) and (max-width: 400px) {
+  #container {
+    grid-template-columns: repeat(1, 1fr);
+    font-size: 14px;
+  }
+
+  #pay{
+    font-size: 14px;
+  }
+  form{
+    width: 30%;
+  }
+}
