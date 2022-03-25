@@ -36,13 +36,13 @@ a {
 #navbar a {
   cursor: pointer;
 }
-@media  screen and (max-width: 1020px) {
+@media  all and (max-width: 1020px) {
   #container{
     font-size: 12px;
   }
 
 }
-@media  screen and (max-width: 720px) {
+@media  all and (max-width: 720px) {
   #container{
     grid-template-columns: repeat(2,1fr);
     gap: 10px;

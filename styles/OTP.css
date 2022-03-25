@@ -30,7 +30,7 @@ form > input {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media all and (max-width: 320px) {
   form > input{
     width: 200px
   }
