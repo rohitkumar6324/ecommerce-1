@@ -493,3 +493,9 @@ function addToCart(elem) {
     localStorage.setItem("cart", JSON.stringify(cartData));
     alert("Item added to cart")
 }
+
+var toggle = document.querySelector("#hamburger");
+var nav = document.querySelector("#navigation");
+toggle.addEventListener("click", function () {
+    nav.classList.toggle("show")
+});

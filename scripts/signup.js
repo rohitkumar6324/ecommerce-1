@@ -16,3 +16,9 @@ function signUpFun() {
 
     window.location.href = "./login.html";
 }
+
+var toggle = document.querySelector("#hamburger");
+var nav = document.querySelector("#navigation");
+toggle.addEventListener("click", function () {
+    nav.classList.toggle("show")
+});

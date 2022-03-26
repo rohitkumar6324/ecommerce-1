@@ -22,3 +22,4 @@ function payNow() {
         document.querySelector("#exp").value = "";
     }
 }
+

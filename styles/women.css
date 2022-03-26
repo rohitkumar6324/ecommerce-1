@@ -7,9 +7,6 @@ body {
 h1 {
   padding: 5px;
 }
-img{
-  width: 100%;
-}
 #container {
   padding: 5px;
   display: grid;
@@ -17,36 +14,75 @@ img{
   gap: 20px;
   font-size: 14px;
 }
+
+#container img{
+  width: 100%;
+}
 #navbar {
   position: sticky;
-  top: 0px;
+  top: 0;
+  /* height: 50px; */
   display: flex;
-  justify-content: space-around;
-  background-color: teal;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffdef1;
   padding: 10px;
 }
 
+#hamburger{
+  display: none;
+  background-color: inherit;
+  border: none;
+  font-size: 24px;
+}
+#logo{
+  height: 50px;
+  width: auto;
+  margin: auto;
+}
 a {
   text-decoration: none;
-  color: lightgrey;
+  color: black;
+  font-weight: 700;
 }
 #navbar a:hover {
-  color: white;
+  color: lightgray;
 }
 #navbar a {
   cursor: pointer;
 }
-@media  all and (max-width: 1020px) {
-  #container{
-    font-size: 12px;
-  }
 
+#navigation{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  width: 100%;
 }
 @media  all and (max-width: 720px) {
   #container{
     grid-template-columns: repeat(2,1fr);
     gap: 10px;
-    font-size: 14px;
+  }
+
+  #navbar{
+    flex-wrap: wrap;
+  }
+
+  #hamburger{
+    display: block;
+  }
+
+  
+#navbar .show{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  #navbar ul{
+    display: none;
   }
 
 }
@@ -54,4 +90,29 @@ a {
   #container {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  body{
+    font-size: 12px;
+  }
+
+  @media all and (max-width: 360px){
+    #logo{
+      height: 40px;
+    }
+
+    #hamburger{
+      font-size: 20px;
+    }
+  }
+  @media all and (max-width: 200px){
+    #logo{
+      height: 30px;
+    }
+
+    #hamburger{
+      font-size: 18px;
+    }
+  }
+
+  
 }

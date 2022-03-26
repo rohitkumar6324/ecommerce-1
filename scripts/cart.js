@@ -91,3 +91,9 @@ function removeFromCart(i) {
 }
 
 localStorage.setItem("amountPayable", JSON.stringify(total));
+
+var toggle = document.querySelector("#hamburger");
+var nav = document.querySelector("#navigation");
+toggle.addEventListener("click", function () {
+    nav.classList.toggle("show")
+});
