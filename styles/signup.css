@@ -1,11 +1,35 @@
 * {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin: 0;
+  height: 100vh;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+body > div + div{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 #navbar {
-  position: sticky;
+  width: 100%;
+  position: fixed;
   top: 0;
   /* height: 50px; */
   display: flex;
@@ -15,29 +39,25 @@ body {
   padding: 10px;
 }
 
-#hamburger{
+#hamburger {
   display: none;
   background-color: inherit;
   border: none;
   font-size: 24px;
+  margin-right: 10px;
 }
-#logo{
+#logo {
   height: 50px;
   width: auto;
   margin: auto;
 }
-#navigation{
-  font-weight: 700;
+#navigation {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
   padding: 0;
   width: 100%;
-}
-
-h1,
-form {
-  padding: 5px;
+  font-weight: 700;
 }
 
 a {
@@ -51,46 +71,56 @@ a {
   cursor: pointer;
 }
 
-@media all and (max-width: 720px)
-{
-  #navbar{
+@media all and (max-width: 720px) {
+  #navbar {
     flex-wrap: wrap;
   }
 
-  #hamburger{
+  #hamburger {
     display: block;
   }
 
-  
-#navbar .show{
+  #navigation {
+    display: none;
+  }
+
+  #navbar .show {
+    display: block;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
     margin-bottom: 0;
   }
-  #navbar ul{
-    display: none;
+}
+
+@media all and (max-width: 360px) {
+  #logo {
+    height: 40px;
+  }
+
+  #hamburger {
+    font-size: 20px;
   }
 }
-@media all and (max-width: 360px){
-    #logo{
-      height: 40px;
-    }
 
-    #hamburger{
-      font-size: 20px;
-    }
+@media all and (max-width: 250px){
+  body > div + div > h1{
+    font-size: 18px;
   }
-  @media all and (max-width: 200px){
-    #logo{
-      height: 30px;
-    }
+  input{
+    width: 100%;
+  }
+}
+@media all and (max-width: 200px) {
+  #logo {
+    height: 30px;
+  }
 
-    #hamburger{
-      font-size: 18px;
-    }
-    input{
-      width: 90%;
-    }
+  #hamburger {
+    font-size: 18px;
   }
+  input {
+    width: 90%;
+  }
+}

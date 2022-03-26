@@ -255,7 +255,10 @@ var mensData = [
 
 var cartData = JSON.parse(localStorage.getItem("cart")) || []
 
-mensData.map(function (elem) {
+displayData(mensData);
+
+function displayData(mensData){
+    mensData.map(function (elem) {
     var box = document.createElement("div");
 
     var span1 = document.createElement("div");
@@ -283,6 +286,8 @@ mensData.map(function (elem) {
 
     document.querySelector("#container").append(box);
 });
+}
+
 
 
 function addToCart(elem) {
