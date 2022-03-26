@@ -51,7 +51,7 @@ h1 + p {
 
 
 #container > div{
-  max-height: 450px;
+  /* max-height: 450px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -150,6 +150,15 @@ form {
     font-size: 12px;
   }
 }
+
+@media all and (max-width: 815px)
+{
+  #container button{
+    font-size: 10px;
+
+  }
+}
+
 @media all and (max-width: 720px) {
   #container {
     grid-template-columns: repeat(2, 1fr);
@@ -159,21 +168,27 @@ form {
   /* form{
     width: 100%;
   } */
+
+  #container button{
+    font-size: 12px;
+  }
   #codeVal {
     margin-bottom: 10px;
   }
   input {
     width: 48%;
   }
-  label {
-    width: 50%;
-    text-align: center;
-  }
   input[type="submit"] {
     font-size: 12px;
     padding: 2px;
     box-sizing: border-box;
   }
+  /* con */
+  label {
+    width: 50%;
+    text-align: center;
+  }
+  
   span {
     margin: 0;
     padding: 0;
