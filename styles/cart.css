@@ -1,11 +1,13 @@
 * {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+
 }
 body {
   margin: 0;
 }
-h1,
-p,
+
 #container {
   padding: 5px;
   box-sizing: border-box;
@@ -25,12 +27,56 @@ h1 + p {
   gap: 20px;
   font-size: 14px;
 }
-img {
+
+#container img{
   width: 100%;
 }
-input
-{
+
+#container > div > div+div{
+  padding-bottom: 20px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: 20px;
+ padding-right: 10px;
+  padding-left: 10px;
+}
+#container > div > div:nth-child(1) > p{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#container > div > div > img{
+  width: 100%;
+}
+
+
+#container > div{
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#container > div > img{
+  margin: 0;
+}
+input {
+  box-sizing: border-box;
+}
+/* #container > div > * {
+  margin-left: 20px;
+  margin-right: 20px;
+} */
+/* #container > div > button {
+  margin-bottom: 20px;
+} */
+#container > div {
+  box-sizing: border-box;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#container > div > img {
+  margin: 0;
 }
 #navbar {
   position: sticky;
@@ -43,26 +89,25 @@ input
   padding: 10px;
 }
 
-#hamburger{
+#hamburger {
   display: none;
   background-color: inherit;
   border: none;
   font-size: 24px;
 }
-#logo{
+#logo {
   height: 50px;
   width: auto;
   margin: auto;
 }
 
-#navigation{
+#navigation {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
   padding: 0;
   width: 100%;
   font-weight: 700;
-
 }
 
 a {
@@ -90,7 +135,7 @@ form {
 #pay {
   margin: 5px;
   border-radius: 2px;
-  width:fit-content;
+  width: fit-content;
   white-space: nowrap;
   /* margin-right: 100%; */
   padding: 10px;
@@ -114,22 +159,22 @@ form {
   /* form{
     width: 100%;
   } */
-  #codeVal{
+  #codeVal {
     margin-bottom: 10px;
   }
-  input{
+  input {
     width: 48%;
   }
-  label{
+  label {
     width: 50%;
     text-align: center;
   }
-  input[type="submit"]{
-     font-size: 12px;
-     padding: 2px;
-     box-sizing: border-box;
+  input[type="submit"] {
+    font-size: 12px;
+    padding: 2px;
+    box-sizing: border-box;
   }
-  span{
+  span {
     margin: 0;
     padding: 0;
     display: flex;
@@ -137,22 +182,22 @@ form {
     gap: auto;
     justify-content: space-between;
   }
-  #navbar .show{
+  #navbar .show {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
     margin-bottom: 0;
   }
-  #navbar ul{
+  #navbar ul {
     display: none;
   }
 
-  #navbar{
+  #navbar {
     flex-wrap: wrap;
   }
 
-  #hamburger{
+  #hamburger {
     display: block;
   }
   /* #paypromo > button {
@@ -161,10 +206,9 @@ form {
   #paypromo > form {
     width: 60%;
   }
-  
 }
 @media all and (max-width: 600px) {
-  h1+p{
+  h1 + p {
     font-size: 16px;
   }
 }
@@ -175,19 +219,20 @@ form {
   }
 }
 @media all and (max-width: 505px) {
-  #paypromo{
+  #paypromo {
     flex-direction: column;
     align-items: left;
   }
-  span{
+  span {
     flex-direction: column;
     gap: 10px;
     font-size: 12px;
   }
-  label,input{
+  label,
+  input {
     width: 100%;
   }
-  #pay{
+  #pay {
     width: 60%;
   }
 }
@@ -197,29 +242,29 @@ form {
     font-size: 14px;
   }
 
-  #pay{
+  #pay {
     font-size: 14px;
   }
-  form{
+  form {
     width: 30%;
   }
 }
 
-@media all and (max-width: 360px){
-    #logo{
-      height: 40px;
-    }
-
-    #hamburger{
-      font-size: 20px;
-    }
+@media all and (max-width: 360px) {
+  #logo {
+    height: 40px;
   }
-  @media all and (max-width: 200px){
-    #logo{
-      height: 30px;
-    }
 
-    #hamburger{
-      font-size: 18px;
-    }
+  #hamburger {
+    font-size: 20px;
   }
+}
+@media all and (max-width: 200px) {
+  #logo {
+    height: 30px;
+  }
+
+  #hamburger {
+    font-size: 18px;
+  }
+}

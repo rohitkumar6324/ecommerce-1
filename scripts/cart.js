@@ -63,12 +63,13 @@ function totalPrice(arr) {
 cartData.map(function (elem, i) {
     var box = document.createElement("div");
 
+    var span1 = document.createElement("div");
+    var span2 = document.createElement("div");
     var img = document.createElement("img");
     img.src = elem.url;
 
     var name = document.createElement("p");
     name.textContent = elem.name;
-    name.style.height = "40px";
 
     var price = document.createElement("p");
     price.innerText = "$" + elem.price;
@@ -79,7 +80,10 @@ cartData.map(function (elem, i) {
         removeFromCart(i);
     });
 
-    box.append(img, name, price, removeCart);
+    span1.append(img,name);
+    span2.append(price,removeCart);
+
+    box.append(span1,span2);
 
     document.querySelector("#container").append(box);
 });

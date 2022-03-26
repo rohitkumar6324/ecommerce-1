@@ -93,4 +93,7 @@ a {
     #hamburger{
       font-size: 18px;
     }
+    input{
+      width: 90%;
+    }
   }

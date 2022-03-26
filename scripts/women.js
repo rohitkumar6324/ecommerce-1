@@ -460,12 +460,13 @@ var cartData = JSON.parse(localStorage.getItem("cart")) || [];
 womensData.map(function (elem) {
     var box = document.createElement("div");
 
+    var span1 = document.createElement("div");
+    var span2 = document.createElement("div");
     var img = document.createElement("img");
     img.src = elem.image_url;
 
     var name = document.createElement("p");
     name.textContent = elem.name;
-    name.style.height = "40px";
 
     var price = document.createElement("p");
     price.innerText = "$" + elem.price;
@@ -477,7 +478,10 @@ womensData.map(function (elem) {
     })
 
 
-    box.append(img, name, price, addCart);
+    span1.append(img, name);
+    span2.append(price, addCart);
+
+    box.append(span1, span2)
 
     document.querySelector("#container").append(box);
 });
