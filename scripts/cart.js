@@ -8,20 +8,34 @@ goToPay.addEventListener("click", paymentPage)
 
 
 var total = totalPrice(cartData);
-
-
-document.querySelector(
+updatedValue(total);
+function updatedValue(total){
+    document.querySelector(
     "p"
 ).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}.`;
+document.querySelector("#promo").value = "";
 if (promoApplied == 1) {
     total = (total * 7) / 10;
     document.querySelector(
         "p"
     ).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}. [Coupon Applied]`;
 }
+}
+
 
 function paymentPage() {
-    window.location.href = "./payment.html";
+    total = totalPrice(cartData);
+    if(total != 0){
+        if(promoApplied == 1){
+                total = (total * 7)/10;
+        }
+        localStorage.setItem("amountPayable", JSON.stringify(total));
+        window.location.href = "./payment.html";
+    }
+    else{
+        alert("You haven't added anything cart.");
+    }
+    
 }
 var coupon = document.querySelector("#apply");
 coupon.addEventListener("click", applyPromo);
@@ -34,7 +48,8 @@ function removePromo() {
     promoApplied = 0;
     localStorage.setItem("coupon", JSON.stringify(promoApplied));
     alert("Discount Removed")
-    window.location.reload();
+    total = totalPrice(cartData);
+    updatedValue(total);
 }
 
 function applyPromo() {
@@ -44,7 +59,8 @@ function applyPromo() {
         promoApplied++;
         localStorage.setItem("coupon", JSON.stringify(promoApplied));
         alert("Coupon Applied!!");
-        window.location.reload();
+        total = totalPrice(cartData);
+        updatedValue(total);
     } else if (couponCode != "masai30") {
         alert("Invalid Coupon Code");
         document.querySelector("#promo").value = "";
@@ -60,41 +76,48 @@ function totalPrice(arr) {
     }, 0);
     return total;
 }
-cartData.map(function (elem, i) {
-    var box = document.createElement("div");
 
-    var span1 = document.createElement("div");
-    var span2 = document.createElement("div");
-    var img = document.createElement("img");
-    img.src = elem.url;
+displayData(cartData);
+function displayData(cartData) {
+    document.querySelector("#container").innerHTML = "";
 
-    var name = document.createElement("p");
-    name.textContent = elem.name;
+    cartData.map(function (elem, i) {
+        var box = document.createElement("div");
 
-    var price = document.createElement("p");
-    price.innerText = "$" + elem.price;
+        var span1 = document.createElement("div");
+        var span2 = document.createElement("div");
+        var img = document.createElement("img");
+        img.src = elem.url;
 
-    var removeCart = document.createElement("button");
-    removeCart.innerText = "Remove From Cart";
-    removeCart.addEventListener("click", function () {
-        removeFromCart(i);
+        var name = document.createElement("p");
+        name.textContent = elem.name;
+
+        var price = document.createElement("p");
+        price.innerText = "$" + elem.price;
+
+        var removeCart = document.createElement("button");
+        removeCart.innerText = "Remove From Cart";
+        removeCart.addEventListener("click", function () {
+            removeFromCart(i);
+        });
+
+        span1.append(img, name);
+        span2.append(price, removeCart);
+
+        box.append(span1, span2);
+
+        document.querySelector("#container").append(box);
     });
+}
 
-    span1.append(img,name);
-    span2.append(price,removeCart);
-
-    box.append(span1,span2);
-
-    document.querySelector("#container").append(box);
-});
 function removeFromCart(i) {
     cartData.splice(i, 1);
     localStorage.setItem("cart", JSON.stringify(cartData));
     alert("Item removed from cart");
-    window.location.reload();
+    displayData(cartData);
+    total = totalPrice(cartData);
+    updatedValue(total);
 }
-
-localStorage.setItem("amountPayable", JSON.stringify(total));
 
 var toggle = document.querySelector("#hamburger");
 var nav = document.querySelector("#navigation");

@@ -457,34 +457,42 @@ var womensData = [
 ];
 
 var cartData = JSON.parse(localStorage.getItem("cart")) || [];
-womensData.map(function (elem) {
-    var box = document.createElement("div");
-
-    var span1 = document.createElement("div");
-    var span2 = document.createElement("div");
-    var img = document.createElement("img");
-    img.src = elem.image_url;
-
-    var name = document.createElement("p");
-    name.textContent = elem.name;
-
-    var price = document.createElement("p");
-    price.innerText = "$" + elem.price;
-
-    var addCart = document.createElement("button");
-    addCart.innerText = "Add To Cart";
-    addCart.addEventListener("click", function () {
-        addToCart(elem);
-    })
 
 
-    span1.append(img, name);
-    span2.append(price, addCart);
+displayData(womensData)
 
-    box.append(span1, span2)
+function displayData(womensData) {
+    document.querySelector("#container").innerHTML = "";
+    womensData.map(function (elem) {
+        var box = document.createElement("div");
 
-    document.querySelector("#container").append(box);
-});
+        var span1 = document.createElement("div");
+        var span2 = document.createElement("div");
+        var img = document.createElement("img");
+        img.src = elem.image_url;
+
+        var name = document.createElement("p");
+        name.textContent = elem.name;
+
+        var price = document.createElement("p");
+        price.innerText = "$" + elem.price;
+
+        var addCart = document.createElement("button");
+        addCart.innerText = "Add To Cart";
+        addCart.addEventListener("click", function () {
+            addToCart(elem);
+        })
+
+
+        span1.append(img, name);
+        span2.append(price, addCart);
+
+        box.append(span1, span2)
+
+        document.querySelector("#container").append(box);
+    });
+}
+
 
 function addToCart(elem) {
     var obj = {

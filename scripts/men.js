@@ -258,6 +258,7 @@ var cartData = JSON.parse(localStorage.getItem("cart")) || []
 displayData(mensData);
 
 function displayData(mensData){
+    document.querySelector("#container").innerHTML = "";
     mensData.map(function (elem) {
     var box = document.createElement("div");
 

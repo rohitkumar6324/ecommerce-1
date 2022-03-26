@@ -15,7 +15,7 @@ function loginFun() {
             regdUsers[i].password == enteredPass
         ) {
             alert("login success");
-            window.location.href = "men.html";
+            window.location.href = "./cart.html";
             break;
         } else if (i == regdUsers.length - 1) {
             alert("login failed");
