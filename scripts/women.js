@@ -2,7 +2,7 @@ var womensData = [
     {
         image_url:
             "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
-        name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+        name: "WOMEN'S REEBOK PRINT LEGGINGS",
         price: 1549,
         strikedoffprice: 1799,
     },
@@ -93,7 +93,7 @@ var womensData = [
     {
         image_url:
             "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
-        name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+        name: "WOMEN'S REEBOK PRINT LEGGINGS",
         price: 1549,
         strikedoffprice: 1799,
     },
@@ -184,7 +184,7 @@ var womensData = [
     {
         image_url:
             "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
-        name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+        name: "WOMEN'S REEBOK PRINT LEGGINGS",
         price: 1549,
         strikedoffprice: 1799,
     },
@@ -275,7 +275,7 @@ var womensData = [
     {
         image_url:
             "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
-        name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+        name: "WOMEN'S REEBOK PRINT LEGGINGS",
         price: 1549,
         strikedoffprice: 1799,
     },
@@ -366,7 +366,7 @@ var womensData = [
     {
         image_url:
             "https://content.shop4reebok.com/static/Product-GL2296/reebok_GL2296_1.jpg.plp",
-        name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+        name: "WOMEN'S REEBOK PRINT LEGGINGS",
         price: 1549,
         strikedoffprice: 1799,
     },
