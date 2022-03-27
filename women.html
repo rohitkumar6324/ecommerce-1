@@ -17,20 +17,38 @@
   </head>
   <body>
     <div id="navbar">
-     <img src="./images/my_better_logo-removebg-preview.png" id="logo">
-     <button id="hamburger">
-       <i class="fa-solid fa-bars"></i>
-     </button>
-     <ul id="navigation">
-      <li><a href="./men.html">Men</a></li>
-      <li><a href="./women.html">Women</a></li>
-      <li><a href="./signup.html">Signup</a></li>
-      <li><a href="./login.html">Login</a></li>
-      <li><a href="./cart.html">Cart</a></li>
-     </ul>
-      
+      <img src="./images/my_better_logo-removebg-preview.png" id="logo" />
+      <button id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul id="navigation">
+        <li><a href="./men.html">Men</a></li>
+        <li><a href="./women.html">Women</a></li>
+        <li><a href="./signup.html">Signup</a></li>
+        <li><a href="./login.html">Login</a></li>
+        <li><a href="./cart.html">Cart</a></li>
+      </ul>
     </div>
     <h1>Women's page</h1>
+    <div id="sortFilter">
+      <div class="sortOption">
+        <label for="sortByPrice">Sort By Price :</label>
+        <select name="sortByPrice" id="sortByPrice">
+          <option value="--">--</option>
+          <option value="lowToHigh">Low to High</option>
+          <option value="highToLow">High to Low</option>
+        </select>
+      </div>
+      <div class="sortOption">Filter By Brand :</label>
+        <select name="sortByPrice" id="filterByBrand">
+          <option value="--">--</option>
+          <option value="zara">Zara</option>
+          <option value="puma">Puma</option>
+          <option value="adidas">Adidas</option>
+        </select>
+      </div>
+    </div>
+
     <div id="container"></div>
   </body>
 </html>

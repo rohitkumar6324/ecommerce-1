@@ -253,6 +253,25 @@ var mensData = [
     },
 ];
 
+for(var i = 0; i < mensData.length; i++){
+    if(i % 2 == 0){
+        mensData[i]["brand"] = "zara";
+    }
+    else if(i % 3 == 0){
+        mensData[i]["brand"] = "adidas";
+    }
+    else{
+        mensData[i]["brand"] = "puma";
+    }
+    
+}
+var copiedData = [];
+
+for(i = 0; i < mensData.length; i++){
+    copiedData.push(mensData[i])
+}
+console.log(copiedData);
+
 var cartData = JSON.parse(localStorage.getItem("cart")) || []
 
 displayData(mensData);
@@ -305,6 +324,65 @@ function addToCart(elem) {
 
 var toggle = document.querySelector("#hamburger");
 var nav = document.querySelector("#navigation");
+var sort = document.querySelector("#sortFilter");
+var priceSort = document.querySelector("#sortByPrice");
+var filterBrand = document.querySelector("#filterByBrand");
 toggle.addEventListener("click",function() {
     nav.classList.toggle("show")
+    sort.classList.toggle("show")
 });
+
+priceSort.addEventListener("change",sortByPrice);
+filterBrand.addEventListener("change",filterByBrand);
+
+function sortByPrice(){
+    var optionValue = document.querySelector("#sortByPrice").value;
+    document.querySelector("#filterByBrand").value = "--";
+    if(optionValue == "--"){
+        mensData = [];
+        for(var i = 0; i < copiedData.length; i++){
+            mensData.push(copiedData[i]);
+        }
+    }
+    else if(optionValue == "lowToHigh"){
+        mensData.sort((a,b)=>{
+            if(a.price > b.price) return 1;
+            if(a.price < b.price) return -1;
+            return 0;
+        })
+    }
+    else if(optionValue == "highToLow"){
+        mensData.sort((a,b)=>{
+            if(a.price < b.price) return 1;
+            if(a.price > b.price) return -1;
+            return 0;
+        })
+    }
+    displayData(mensData);
+
+}
+
+
+function filterByBrand(){
+    var optionValue = document.querySelector("#filterByBrand").value;
+    document.querySelector("#sortByPrice").value = "--";
+    if(optionValue == "--"){
+        mensData = [];
+        for (var i = 0; i < copiedData.length; i++) {
+            mensData.push(copiedData[i]);
+        }
+        displayData(mensData)
+    }
+    else if(optionValue == "zara"){
+        var zaraData = copiedData.filter((a) => a.brand == "zara");
+        displayData(zaraData);
+    }
+    else if(optionValue == "puma"){
+        var pumaData = copiedData.filter((a) => a.brand == "puma");
+        displayData(pumaData);
+    }
+    else if(optionValue == "adidas"){
+        var adidasData = copiedData.filter((a) => a.brand == "adidas");
+        displayData(adidasData);
+    }
+}

@@ -458,7 +458,24 @@ var womensData = [
 
 var cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
+for (var i = 0; i < womensData.length; i++) {
+    if (i % 2 == 0) {
+        womensData[i]["brand"] = "zara";
+    }
+    else if (i % 3 == 0) {
+        womensData[i]["brand"] = "adidas";
+    }
+    else {
+        womensData[i]["brand"] = "puma";
+    }
 
+}
+
+var copiedData = [];
+
+for (i = 0; i < womensData.length; i++) {
+    copiedData.push(womensData[i])
+}
 displayData(womensData)
 
 function displayData(womensData) {
@@ -508,6 +525,65 @@ function addToCart(elem) {
 
 var toggle = document.querySelector("#hamburger");
 var nav = document.querySelector("#navigation");
+var sort = document.querySelector("#sortFilter");
+var priceSort = document.querySelector("#sortByPrice");
+var filterBrand = document.querySelector("#filterByBrand");
 toggle.addEventListener("click", function () {
     nav.classList.toggle("show")
+    sort.classList.toggle("show")
 });
+
+priceSort.addEventListener("change", sortByPrice);
+filterBrand.addEventListener("change", filterByBrand);
+
+function sortByPrice() {
+    var optionValue = document.querySelector("#sortByPrice").value;
+    document.querySelector("#filterByBrand").value = "--";
+    if (optionValue == "--") {
+       womensData = [];
+        for (var i = 0; i < copiedData.length; i++) {
+           womensData.push(copiedData[i]);
+        }
+    }
+    else if (optionValue == "lowToHigh") {
+       womensData.sort((a, b) => {
+            if (a.price > b.price) return 1;
+            if (a.price < b.price) return -1;
+            return 0;
+        })
+    }
+    else if (optionValue == "highToLow") {
+       womensData.sort((a, b) => {
+            if (a.price < b.price) return 1;
+            if (a.price > b.price) return -1;
+            return 0;
+        })
+    }
+    displayData(womensData);
+
+}
+
+
+function filterByBrand() {
+    var optionValue = document.querySelector("#filterByBrand").value;
+    document.querySelector("#sortByPrice").value = "--";
+    if (optionValue == "--") {
+        womensData = [];
+        for (var i = 0; i < copiedData.length; i++) {
+            womensData.push(copiedData[i]);
+        }
+        displayData(womensData)
+    }
+    else if (optionValue == "zara") {
+        var zaraData = copiedData.filter((a) => a.brand == "zara");
+        displayData(zaraData);
+    }
+    else if (optionValue == "puma") {
+        var pumaData = copiedData.filter((a) => a.brand == "puma");
+        displayData(pumaData);
+    }
+    else if (optionValue == "adidas") {
+        var adidasData = copiedData.filter((a) => a.brand == "adidas");
+        displayData(adidasData);
+    }
+}
