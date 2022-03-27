@@ -290,7 +290,7 @@ function displayData(mensData){
     name.textContent = elem.name;
 
     var price = document.createElement("p");
-    price.innerText = "$" + elem.price;
+    price.innerText = "₹" + elem.price;
 
     var addCart = document.createElement("button");
     addCart.innerText = "Add To Cart";

@@ -9,33 +9,33 @@ goToPay.addEventListener("click", paymentPage)
 
 var total = totalPrice(cartData);
 updatedValue(total);
-function updatedValue(total){
-    document.querySelector(
-    "p"
-).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}.`;
-document.querySelector("#promo").value = "";
-if (promoApplied == 1) {
-    total = (total * 7) / 10;
+function updatedValue(total) {
     document.querySelector(
         "p"
-    ).innerText = `Your cart has a total of ${cartData.length} items and total price is $${total}. [Coupon Applied]`;
-}
+    ).innerText = `Your cart has a total of ${cartData.length} items and total price is ₹${total}.`;
+    document.querySelector("#promo").value = "";
+    if (promoApplied == 1) {
+        total = (total * 7) / 10;
+        document.querySelector(
+            "p"
+        ).innerText = `Your cart has a total of ${cartData.length} items and total price is ₹${total}. [Coupon Applied]`;
+    }
 }
 
 
 function paymentPage() {
     total = totalPrice(cartData);
-    if(total != 0){
-        if(promoApplied == 1){
-                total = (total * 7)/10;
+    if (total != 0) {
+        if (promoApplied == 1) {
+            total = (total * 7) / 10;
         }
         localStorage.setItem("amountPayable", JSON.stringify(total));
         window.location.href = "./payment.html";
     }
-    else{
+    else {
         alert("You haven't added anything cart.");
     }
-    
+
 }
 var coupon = document.querySelector("#apply");
 coupon.addEventListener("click", applyPromo);
@@ -93,7 +93,7 @@ function displayData(cartData) {
         name.textContent = elem.name;
 
         var price = document.createElement("p");
-        price.innerText = "$" + elem.price;
+        price.innerText = "₹" + elem.price;
 
         var removeCart = document.createElement("button");
         removeCart.innerText = "Remove From Cart";

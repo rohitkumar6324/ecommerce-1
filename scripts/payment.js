@@ -1,6 +1,6 @@
 var bill = JSON.parse(localStorage.getItem("amountPayable"))
 var proceedToPay = document.querySelector("#submit");
-proceedToPay.value = `Proceed to Pay $${bill}`;
+proceedToPay.value = `Proceed to Pay ₹${bill}`;
 proceedToPay.addEventListener("click", payNow);
 
 function payNow() {
